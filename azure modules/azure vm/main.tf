@@ -2,6 +2,7 @@
 resource "azurerm_resource_group" "main" {
   name     = var.rgname
   location = var.location
+  count    = 0
 }
 
 resource "azurerm_virtual_network" "main" {
@@ -9,6 +10,7 @@ resource "azurerm_virtual_network" "main" {
   address_space       = ["10.0.0.0/16"]
   location            = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
+  count               = 0
 }
 
 resource "azurerm_subnet" "internal" {
@@ -16,6 +18,7 @@ resource "azurerm_subnet" "internal" {
   resource_group_name  = azurerm_resource_group.main.name
   virtual_network_name = azurerm_virtual_network.main.name
   address_prefixes     = ["10.0.2.0/24"]
+  count                = 0
 }
 
 resource "azurerm_public_ip" "main" {
@@ -23,6 +26,7 @@ resource "azurerm_public_ip" "main" {
   location            = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
   allocation_method   = "Static"
+  count               = 0
 }
 
 resource "azurerm_network_interface" "main" {
@@ -38,6 +42,7 @@ resource "azurerm_network_interface" "main" {
 
 
   }
+  count = 0
 }
 resource "azurerm_virtual_machine" "main" {
   name                             = "${var.vmname}-vm"
@@ -70,4 +75,5 @@ resource "azurerm_virtual_machine" "main" {
   os_profile_linux_config {
     disable_password_authentication = false
   }
+  count = 0
 }
