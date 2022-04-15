@@ -2,7 +2,7 @@
 resource "azurerm_resource_group" "main" {
   name     = var.rgname
   location = var.location
-  count    = "0"
+  count    = "1"
 }
 
 # resource "azurerm_virtual_network" "main" {
