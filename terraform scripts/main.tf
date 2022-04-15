@@ -2,7 +2,7 @@ provider "azurerm" {
   features {}
 }
 variable "cloud" {
-  default = "azure"
+  default = "aws"
 }
 module "azure_vm" {
   source        = "../azure modules/azure vm"
