@@ -1,8 +1,8 @@
 provider "azurerm" {
   features {}
 }
-variable "cloud" {
-  default = "aws"
+locals {
+  cloud = "azure"
 }
 module "azure_vm" {
   source        = "../azure modules/azure vm"
@@ -11,5 +11,6 @@ module "azure_vm" {
   location      = "east us"
   adminuser     = "vmuser"
   adminpassword = "Adm!nistr@tor"
-  vmsize        = "Standard_F2"
+  vmsize        = "Standard_D2"
+  cloud         = local.cloud
 }
