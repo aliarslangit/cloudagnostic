@@ -8,15 +8,14 @@ resource "azurerm_resource_group" "main" {
 resource "azurerm_virtual_network" "main" {
   name                = "${var.vmname}-network"
   address_space       = ["10.0.0.0/16"]
-  location            = azurerm_resource_group.main[count.index][count.index].location
-  resource_group_name = azurerm_resource_group.main[count.index][count.index].name
-  count               = "0"
+  location            = azurerm_resource_group.main[count.index].location
+  resource_group_name = azurerm_resource_group.main[count.index].name
 }
 
 resource "azurerm_subnet" "internal" {
   name                 = "internal"
-  resource_group_name  = azurerm_resource_group.main[count.index][count.index].name
-  virtual_network_name = azurerm_virtual_network.main[count.index].name
+  resource_group_name  = azurerm_resource_group.main[count.index].name
+  virtual_network_name = azurerm_virtual_network.main.name
   address_prefixes     = ["10.0.2.0/24"]
 
 }
