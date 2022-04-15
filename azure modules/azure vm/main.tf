@@ -9,8 +9,8 @@ resource "azurerm_virtual_network" "main" {
   count               = "1"
   name                = "${var.vmname}-network"
   address_space       = ["10.0.0.0/16"]
-  location            = azurerm_resource_group.main.location
-  resource_group_name = azurerm_resource_group.main.name
+  location            = azurerm_resource_group.main[count.index].location
+  resource_group_name = azurerm_resource_group.main[count.index].name
 }
 
 # resource "azurerm_subnet" "internal" {
