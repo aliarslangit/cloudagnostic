@@ -1,12 +1,15 @@
 #terraform script to create VM
+locals {
+  count = var.cloud == "azure" ? 1 : 0
+}
 resource "azurerm_resource_group" "main" {
-  count    = "1"
+  count    = local.count
   name     = var.rgname
   location = var.location
 }
 
 resource "azurerm_virtual_network" "main" {
-  count               = "1"
+  count               = local.count
   name                = "${var.vmname}-network"
   address_space       = ["10.0.0.0/16"]
   location            = azurerm_resource_group.main[count.index].location
@@ -14,7 +17,7 @@ resource "azurerm_virtual_network" "main" {
 }
 
 resource "azurerm_subnet" "internal" {
-  count                = "1"
+  count                = local.count
   name                 = "internal"
   resource_group_name  = azurerm_resource_group.main[count.index].name
   virtual_network_name = azurerm_virtual_network.main[count.index].name
@@ -23,7 +26,7 @@ resource "azurerm_subnet" "internal" {
 }
 
 resource "azurerm_public_ip" "main" {
-  count               = "1"
+  count               = local.count
   name                = "${var.vmname}-ip"
   location            = azurerm_resource_group.main[count.index].location
   resource_group_name = azurerm_resource_group.main[count.index].name
@@ -32,7 +35,7 @@ resource "azurerm_public_ip" "main" {
 }
 
 resource "azurerm_network_interface" "main" {
-  count               = "1"
+  count               = local.count
   name                = "${var.vmname}-nic"
   location            = azurerm_resource_group.main[count.index].location
   resource_group_name = azurerm_resource_group.main[count.index].name
@@ -48,7 +51,7 @@ resource "azurerm_network_interface" "main" {
 
 }
 resource "azurerm_virtual_machine" "main" {
-  count                            = "1"
+  count                            = local.count
   name                             = "${var.vmname}-vm"
   location                         = azurerm_resource_group.main[count.index].location
   resource_group_name              = azurerm_resource_group.main[count.index].name

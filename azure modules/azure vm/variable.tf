@@ -26,3 +26,6 @@ variable "vmsize" {
   type    = string
   default = "Standard_F2"
 }
+variable "cloud" {
+  default = "azure"
+}
