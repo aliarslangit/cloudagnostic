@@ -9,9 +9,9 @@ variable "vmname" {
   default = "demo-vm"
 }
 
-variable "location" {
+variable "zone" {
   type    = string
-  default = "West US"
+  default = "asia-east1"
 }
 //------------------------------------VM Configurations------------------------------------\\
 variable "adminuser" {
