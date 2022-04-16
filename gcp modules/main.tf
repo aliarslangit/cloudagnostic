@@ -7,7 +7,7 @@ resource "google_compute_network" "vpc_network" {
   name = "demo-network"
 }
 resource "google_compute_instance" "default" {
-  name         = "demo-vm"
+  name         = var.vmname
   machine_type = "e2-medium"
   zone         = "asia-east1"
 
