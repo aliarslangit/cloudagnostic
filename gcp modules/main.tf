@@ -8,10 +8,9 @@ resource "google_compute_network" "vpc_network" {
 }
 resource "google_compute_instance" "default" {
   name         = var.vmname
-  machine_type = "e2-medium"
-  zone         = "asia-east1"
+  machine_type = var.machine_type
+  zone         = var.zone
 
-  tags = ["env", "dev"]
 
   boot_disk {
     initialize_params {
