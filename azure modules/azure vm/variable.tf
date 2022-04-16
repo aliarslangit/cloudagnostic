@@ -22,9 +22,9 @@ variable "adminpassword" {
   type    = string
   default = "P@ssw0rd!234"
 }
-variable "machine_type" {
+variable "vmsize" {
   type    = string
-  default = "e2-medium"
+  default = "Standard_F2"
 }
 variable "cloud" {
   default = "azure"
