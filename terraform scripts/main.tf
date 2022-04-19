@@ -2,7 +2,7 @@ provider "azurerm" {
   features {}
 }
 locals {
-  cloud = "aws"
+  cloud = var.cloud
 }
 module "azure_vm" {
   source        = "../azure modules/azure vm"
