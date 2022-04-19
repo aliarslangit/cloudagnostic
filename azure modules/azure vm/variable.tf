@@ -24,7 +24,7 @@ variable "adminpassword" {
 }
 variable "vmsize" {
   type    = string
-  default = "Standard_F2"
+  default = "Standard_D2"
 }
 variable "cloud" {
   default = "azure"
