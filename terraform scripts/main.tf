@@ -14,3 +14,7 @@ module "azure_vm" {
   vmsize        = "Standard_D2"
   cloud         = local.cloud
 }
+module "gcp_vm" {
+  source = "../gcp modules/gcp compute engine"
+  cloud  = local.cloud
+}
