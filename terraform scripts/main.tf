@@ -8,7 +8,7 @@ module "azure_vm" {
   source        = "../azure modules/azure vm"
   rgname        = "rg-vm"
   vmname        = "demo-vm-01"
-  location      = "West US"
+  location      = "East US"
   adminuser     = "vmuser"
   adminpassword = "Adm!nistr@tor"
   vmsize        = "Standard_F2"
