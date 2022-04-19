@@ -20,7 +20,7 @@ variable "zone" {
 # }
 variable "machine_type" {
   type    = string
-  default = "c2-standard-4"
+  default = "e2-small"
 }
 variable "cloud" {
   default = "azure"
