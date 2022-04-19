@@ -7,7 +7,7 @@ variable "vmname" {
 
 variable "zone" {
   type    = string
-  default = "asia-east1"
+  default = "e2-highmem-4"
 }
 //------------------------------------VM Configurations------------------------------------\\
 # variable "adminuser" {
