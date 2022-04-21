@@ -3,10 +3,16 @@ provider "google" {
   access_token = ""
   project      = "systems-cloud"
 }
+locals {
+  count = var.cloud == "gcp" ? 1 : 0
+}
 resource "google_compute_network" "vpc_network" {
-  name = "demo-network"
+  count = local.count
+  name  = "demo-network-1"
+
 }
 resource "google_compute_instance" "default" {
+  count        = local.count
   name         = var.vmname
   machine_type = var.machine_type
   zone         = var.zone
@@ -18,10 +24,10 @@ resource "google_compute_instance" "default" {
     }
   }
 
-  // Local SSD disk
-  scratch_disk {
-    interface = "SCSI"
-  }
+  # // Local SSD disk
+  # scratch_disk {
+  #   interface = "SCSI"
+  # }
 
   network_interface {
     network = "default"
