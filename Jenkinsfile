@@ -9,14 +9,15 @@ pipeline {
         AZ_PASSWORD=credentials('azpassword')
     }
     parameters {
-       
-        string(name: 'clustername', defaultValue: 'demoaks', description: '')
+       booleanParam(name: 'destroy', defaultValue: true, description: 'Select the checkbox if you want to destroy the infrastructure')
+       booleanParam(name: 'existingvpc', defaultValue: true, description: 'Select the checkbox if you want to use existing vpc')        
+        string(name: 'vmname', defaultValue: 'demoaks', description: '')
         string(name: 'rgname', defaultValue: 'rg-demo-aks', description: '')
         string(name: 'location', defaultValue: 'eastus', description: '')
-        string(name: 'nodesize', defaultValue: 'Standard_D2_v2', description: '')
-        string(name: 'mincount', defaultValue: '1', description: '')
-        string(name: 'maxcount', defaultValue: '3', description: '')
-        string(name: 'dnsprefix', defaultValue: 'kubernetes-dns', description: '')
+        string(name: 'adminuser', defaultValue: 'Standard_D2_v2', description: '')
+        string(name: 'adminpassword', defaultValue: '1', description: '')
+        string(name: 'vmsize', defaultValue: '3', description: '')
+        string(name: 'cloud', defaultValue: 'kubernetes-dns', description: '')
         string(name: 'owner', defaultValue: 'demo', description: '')
         string(name: 'environment', defaultValue: 'Dev', description: '')
     }
