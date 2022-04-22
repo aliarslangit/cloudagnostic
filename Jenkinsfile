@@ -27,7 +27,7 @@ pipeline {
         stage('Git checkout') { 
             steps{
                 sh 'whoami'
-                git branch: 'main', credentialsId: 'ali123', url: 'https://github.com/aliarslangit/terraform-azure-jenkins.git'
+                git branch: 'main', credentialsId: 'github', url: 'https://github.com/aliarslangit/terraform-azure-jenkins.git'
         }
         }
              stage('Installing Azure Modules') {
