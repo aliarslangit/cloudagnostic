@@ -1,13 +1,6 @@
 pipeline {
    agent any
-    environment {
-        AZURE_SUBSCRIPTION_ID= credentials('azuresubid') 
-        AZURE_TENANT_ID= credentials('azuretenantid')
-        AZURE_CLIENT_ID= credentials('azureclientid')
-        AZURE_CLIENT_SECRET= credentials('azureclientsecret')
-        AZ_USERNAME=credentials('azusername')
-        AZ_PASSWORD=credentials('azpassword')
-    }
+
     parameters {
        booleanParam(name: 'destroy', defaultValue: true, description: 'Select the checkbox if you want to destroy the infrastructure')
        booleanParam(name: 'existingvpc', defaultValue: true, description: 'Select the checkbox if you want to use existing vpc')        
