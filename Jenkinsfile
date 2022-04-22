@@ -17,9 +17,11 @@ pipeline {
         string(name: 'adminuser', defaultValue: 'Standard_D2_v2', description: '')
         string(name: 'adminpassword', defaultValue: '1', description: '')
         string(name: 'vmsize', defaultValue: '3', description: '')
-        string(name: 'cloud', defaultValue: 'kubernetes-dns', description: '')
-        string(name: 'owner', defaultValue: 'demo', description: '')
-        string(name: 'environment', defaultValue: 'Dev', description: '')
+        string(name: 'cloud', defaultValue: 'azure', description: '')
+        string(name: 'vmname', defaultValue: 'demo', description: '')
+        string(name: 'zone', defaultValue: 'Dev', description: '')
+        string(name: 'machine_type', defaultValue: 'demo', description: '')
+        
     }
     stages {
         stage('Git checkout') { 
