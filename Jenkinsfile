@@ -1,6 +1,10 @@
 pipeline {
    agent any
 
+    environment{
+        AZ_USERNAME=credentials('azurevsi')
+        AZ_PASSWORD=credentials('azpassword')
+    }
     parameters {
        booleanParam(name: 'destroy', defaultValue: true, description: 'Select the checkbox if you want to destroy the infrastructure')
        booleanParam(name: 'existingvpc', defaultValue: true, description: 'Select the checkbox if you want to use existing vpc')        
@@ -40,6 +44,14 @@ pipeline {
                     sh 'sudo apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com $(lsb_release -cs) main"'
                     sh 'sudo apt install terraform'
                 }
+        }
+        stage{
+            steps{
+                             withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'azurevsi', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']])
+                             {
+                                sh 'az login -u $USERNAME -p $PASSWORD'
+                             }
+            }
         }
         stage('Terraform Initialization') { 
             steps{
