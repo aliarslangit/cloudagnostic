@@ -20,7 +20,7 @@ pipeline {
         stage('Git checkout') { 
             steps{
                 sh 'whoami'
-                git branch: 'main', credentialsId: 'github', url: 'https://https://github.com/aliarslangit/cloudagnostic-terraform-azure-gcp'
+                git branch: 'main', credentialsId: 'github', url: 'https://github.com/aliarslangit/cloudagnostic-terraform-azure-gcp'
                 sh 'ls'
         }
         }
