@@ -1,10 +1,7 @@
 pipeline {
    agent any
 
-    environment{
-        AZ_USERNAME=credentials('azurevsi')
-        AZ_PASSWORD=credentials('azpassword')
-    }
+
     parameters {
        booleanParam(name: 'destroy', defaultValue: true, description: 'Select the checkbox if you want to destroy the infrastructure')
        booleanParam(name: 'existingvpc', defaultValue: true, description: 'Select the checkbox if you want to use existing vpc')        
