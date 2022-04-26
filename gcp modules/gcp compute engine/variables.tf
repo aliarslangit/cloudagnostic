@@ -25,3 +25,6 @@ variable "machine_type" {
 variable "cloud" {
   default = "azure"
 }
+variable "accesstoken" {
+  default = "test"
+}
