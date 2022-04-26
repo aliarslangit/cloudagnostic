@@ -10,3 +10,9 @@ variable "adminuser" {
 variable "adminpassword" {
   default = "P@ssw0rd!"
 }
+variable "rgname" {
+  default = "rg-test"
+}
+variable "location" {
+  default = "east us"
+}
