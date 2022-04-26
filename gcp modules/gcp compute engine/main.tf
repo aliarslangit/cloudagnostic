@@ -1,6 +1,6 @@
 provider "google" {
   #credentials = file("gcp-creds.json")
-  access_token = ""
+  access_token = var.accesstoken
   project      = "systems-cloud"
 }
 locals {
