@@ -56,7 +56,7 @@ pipeline {
          
              //   sh 'terraform apply' 
                 
-            sh 'terraform apply -var clustername=$clustername -var rgname=$rgname -var location=$location -var nodesize=$nodesize -var mincount=$mincount -var maxcount=$maxcount -var dnsprefix=$dnsprefix -var owner=$owner -var environment=$environment -auto-approve'   
+            sh 'terraform apply -var cloud=$cloud -var vmname=$vmname -var rgname=$rgname -var location=$location -var adminuser=$adminuser -var adminpassword=$adminpassword -var vmsize=$vmsize'
                   
             }
         }  
