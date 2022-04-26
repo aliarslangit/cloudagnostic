@@ -43,7 +43,11 @@ pipeline {
         }
         stage('Terraform Initialization') { 
             steps{
-                   sh 'terraform init'
+                   
+               sh '''#!/bin/bash
+               cd ./terraformscript
+               terraform init
+                '''
     }
         }
         stage('Check Terraform plan') { 
@@ -64,8 +68,10 @@ pipeline {
          
              //   sh 'terraform apply' 
                 
-            sh 'terraform apply -var cloud=$cloud -var vmname=$vmname -var rgname=$rgname -var location=$location -var adminuser=$adminuser -var adminpassword=$adminpassword -var vmsize=$vmsize'
-                  
+            sh '''#!/bin/bash
+            cd ./terraformscript
+            terraform apply -var cloud=$cloud -var vmname=$vmname -var rgname=$rgname -var location=$location -var adminuser=$adminuser -var adminpassword=$adminpassword -var vmsize=$vmsize
+             '''     
             }
         }  
     
