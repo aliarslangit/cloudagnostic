@@ -29,7 +29,7 @@ pipeline {
                     sh 'sudo curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash'
                     withCredentials([azureServicePrincipal('azcli')]) {
                     sh 'az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID'
-                    sh 'cd /var/lib/jenkins/workspace/cloudagnostic/terraformscript           
+                    sh 'cd /var/lib/jenkins/workspace/cloudagnostic/terraformscript'           
                     sh 'ls'
                     }
                 }
