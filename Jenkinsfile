@@ -45,7 +45,8 @@ pipeline {
                     sh 'sudo apt install terraform'
                 }
         }
-        stage{
+        stage('Azure Login')
+        {
             steps{
                              withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'azurevsi', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']])
                              {
