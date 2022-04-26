@@ -21,7 +21,7 @@ pipeline {
             steps{
                 sh 'whoami'
                 git branch: 'main', credentialsId: 'github', url: 'https://github.com/aliarslangit/cloudagnostic-terraform-azure-gcp'
-                sh 'sudo cd ./terraform scripts'
+                
         }
         }
              stage('Installing Azure Modules') {
