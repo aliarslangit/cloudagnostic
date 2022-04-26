@@ -51,7 +51,7 @@ pipeline {
 
                sh '''#!/bin/bash
                cd ./terraformscript
-               terraform plan -var cloud=$cloud -var vmname=$vmname -var rgname=$rgname -var location=$location -var adminuser=$adminuser -var adminpassword=$adminpassword -var vmsize=$vmsize'
+               terraform plan -var cloud=$cloud -var vmname=$vmname -var rgname=$rgname -var location=$location -var adminuser=$adminuser -var adminpassword=$adminpassword -var vmsize=$vmsize
               '''
               
               
