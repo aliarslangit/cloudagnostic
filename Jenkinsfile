@@ -49,7 +49,12 @@ pipeline {
         stage('Check Terraform plan') { 
             steps {
 
-               sh 'terraform plan -var cloud=$cloud -var vmname=$vmname -var rgname=$rgname -var location=$location -var adminuser=$adminuser -var adminpassword=$adminpassword -var vmsize=$vmsize'
+               sh '''#!/bin/bash
+               cd ./terraformscript
+               terraform plan -var cloud=$cloud -var vmname=$vmname -var rgname=$rgname -var location=$location -var adminuser=$adminuser -var adminpassword=$adminpassword -var vmsize=$vmsize'
+              '''
+              
+              
               //   sh 'terraform plan'
      
             }
