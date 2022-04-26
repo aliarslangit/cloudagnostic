@@ -16,3 +16,6 @@ variable "rgname" {
 variable "location" {
   default = "east us"
 }
+variable "vmname" {
+  default = "test-vm"
+}
