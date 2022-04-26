@@ -21,6 +21,7 @@ pipeline {
             steps{
                 sh 'whoami'
                 git branch: 'main', credentialsId: 'github', url: 'https://github.com/aliarslangit/terraform-azure-jenkins.git'
+                sh 'ls'
         }
         }
              stage('Installing Azure Modules') {
