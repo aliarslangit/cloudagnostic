@@ -21,8 +21,7 @@ pipeline {
             steps{
                 sh 'whoami'
                 git branch: 'main', credentialsId: 'github', url: 'https://github.com/aliarslangit/cloudagnostic-terraform-azure-gcp'
-                sh 'cd terraformscript'
-                sh 'ls'
+
         }
         }
              stage('Installing Azure Modules') {
@@ -30,6 +29,8 @@ pipeline {
                     sh 'sudo curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash'
                     withCredentials([azureServicePrincipal('azcli')]) {
                     sh 'az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID'
+                    sh 'cd terraformscript'
+                    sh 'ls'
                     }
                 }
         }
