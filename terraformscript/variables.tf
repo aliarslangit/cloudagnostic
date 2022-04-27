@@ -19,3 +19,15 @@ variable "location" {
 variable "vmname" {
   default = "test-vm"
 }
+variable "clientid" {
+  default = ""
+}
+variable "clientsecret" {
+  default = ""
+}
+variable "subid" {
+  default = ""
+}
+variable "tenantid" {
+  default = ""
+}
