@@ -1,0 +1,1 @@
+# cloudagnostic-terraform-azure-gcp
