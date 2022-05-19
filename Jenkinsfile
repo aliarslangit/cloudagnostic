@@ -57,7 +57,7 @@ pipeline {
         }
         stage('Terraform Initialization') { 
              when {
-        cloud 'azure'
+        params.cloud==azure
     }
             steps{
                    
@@ -69,7 +69,7 @@ pipeline {
         }
         stage('Check Terraform plan') { 
              when {
-        cloud 'azure'
+        params.cloud==azure
     }
             steps {
 
@@ -85,7 +85,7 @@ pipeline {
         }
         stage('Apply the terraform code') {
              when {
-        cloud 'azure'
+        params.cloud==azure
     }
             steps{
                 
