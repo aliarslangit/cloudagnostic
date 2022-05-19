@@ -1,6 +1,11 @@
 provider "azurerm" {
   features {}
 }
+provider "google" {
+  #credentials = file("gcp-creds.json")
+  access_token = var.accesstoken
+  project      = "systems-cloud"
+}
 locals {
   cloud = var.cloud
 }
