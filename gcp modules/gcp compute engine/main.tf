@@ -1,8 +1,4 @@
-provider "google" {
-  #credentials = file("gcp-creds.json")
-  access_token = var.accesstoken
-  project      = "systems-cloud"
-}
+
 locals {
   count = var.cloud == "gcp" ? 1 : 0
 }
