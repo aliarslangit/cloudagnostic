@@ -5,6 +5,7 @@ pipeline {
     parameters {
        booleanParam(name: 'destroy', defaultValue: true, description: 'Select the checkbox if you want to destroy the infrastructure')
        booleanParam(name: 'existingvpc', defaultValue: true, description: 'Select the checkbox if you want to use existing vpc')        
+        //Azure VM Parameters
         string(name: 'vmname', defaultValue: 'demovm', description: '')
         string(name: 'rgname', defaultValue: 'rg-demo-vm', description: '')
         string(name: 'location', defaultValue: 'eastus', description: '')
@@ -12,6 +13,7 @@ pipeline {
         string(name: 'adminpassword', defaultValue: 'P@ssW0rd', description: '')
         string(name: 'vmsize', defaultValue: 'Standard_D2_v2', description: '')
         string(name: 'cloud', defaultValue: 'azure', description: '')
+        //GCP VM Parameters
         string(name: 'vmname', defaultValue: 'demo-vm', description: '')
         string(name: 'zone', defaultValue: 'Dev', description: '')
         string(name: 'machine_type', defaultValue: 'demo', description: '')
@@ -26,6 +28,7 @@ pipeline {
         }
         }
              stage('Installing Azure Modules') {
+                   
             steps {
                     sh 'sudo curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash'
                     withCredentials([azureServicePrincipal('azcli')]) {
@@ -36,6 +39,7 @@ pipeline {
                 }
         }
              stage('Installing Terraform') {
+                 
             steps {
                     sh 'curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -'
                     sh 'sudo apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com $(lsb_release -cs) main"'
@@ -52,6 +56,9 @@ pipeline {
             }
         }
         stage('Terraform Initialization') { 
+             when {
+        cloud 'azure'
+    }
             steps{
                    
                sh '''#!/bin/bash
@@ -61,6 +68,9 @@ pipeline {
     }
         }
         stage('Check Terraform plan') { 
+             when {
+        cloud 'azure'
+    }
             steps {
 
                sh '''#!/bin/bash
@@ -74,8 +84,12 @@ pipeline {
             }
         }
         stage('Apply the terraform code') {
+             when {
+        cloud 'azure'
+    }
             steps{
-         
+                
+
              //   sh 'terraform apply' 
                 
             sh '''#!/bin/bash
