@@ -57,11 +57,6 @@ pipeline {
         //     }
         // }
         stage('Terraform Initialization') { 
-             when {
-                 expression {
-        params.cloud==azure
-                 }
-    }
             steps{
                    
                sh '''#!/bin/bash
@@ -71,11 +66,7 @@ pipeline {
     }
         }
         stage('Check Terraform plan') { 
-             when {
-        expression {
-        params.cloud==azure
-                 }
-    }
+
             steps {
 
                sh '''#!/bin/bash
@@ -85,11 +76,7 @@ pipeline {
             }
         }
         stage('Apply the terraform code') {
-             when {
-        expression {
-        params.cloud==azure
-                 }
-    }
+
             steps{
                 
 
