@@ -47,15 +47,15 @@ pipeline {
                     sh 'sudo apt install terraform'
                 }
         }
-        stage('Azure Login')
-        {
-            steps{
-                             withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'azurevsi', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']])
-                             {
-                                sh 'az login -u $USERNAME -p $PASSWORD'
-                             }
-            }
-        }
+        // stage('Azure Login')
+        // {
+        //     steps{
+        //                      withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'azurevsi', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']])
+        //                      {
+        //                         sh 'az login -u $USERNAME -p $PASSWORD'
+        //                      }
+        //     }
+        // }
         stage('Terraform Initialization') { 
              when {
                  expression {
