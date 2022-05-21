@@ -38,24 +38,24 @@ pipeline {
                     }
                 }
         }
-        //      stage('Installing Terraform') {
+             stage('Installing Terraform') {
                  
-        //     steps {
+            steps {
                     
-        //             sh 'curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -'
-        //             sh 'sudo apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com $(lsb_release -cs) main"'
-        //             sh 'sudo apt install terraform'
-        //         }
-        // }
-        // stage('Azure Login')
-        // {
-        //     steps{
-        //                      withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'azurevsi', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']])
-        //                      {
-        //                         sh 'az login -u $USERNAME -p $PASSWORD'
-        //                      }
-        //     }
-        // }
+                    sh 'curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -'
+                    sh 'sudo apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com $(lsb_release -cs) main"'
+                    sh 'sudo apt install terraform'
+                }
+        }
+        stage('Azure Login')
+        {
+            steps{
+                             withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'azurevsi', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']])
+                             {
+                                sh 'az login -u $USERNAME -p $PASSWORD'
+                             }
+            }
+        }
         stage('Terraform Initialization') { 
              when {
                  expression {
