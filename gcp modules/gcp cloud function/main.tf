@@ -1,6 +1,6 @@
 provider "google" {
   credentials = file("gcp-creds.json")
-  project     = "demo-cloud"
+  project     = "systems-cloud"
 }
 resource "google_storage_bucket" "bucket" {
   name     = "test-bucket"
