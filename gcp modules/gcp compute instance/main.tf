@@ -1,14 +1,14 @@
 provider "google" {
   credentials = file("gcp-creds.json")
-  project     = "systems-cloud"
+  project     = "demo-cloud"
 }
 resource "google_compute_network" "vpc_network1" {
   name = "terraform-network1"
 }
 resource "google_compute_instance" "default" {
-  name         = "test"
-  machine_type = "e2-medium"
-  zone         = "asia-east1"
+  name         = var.vm_name
+  machine_type = var.machine_type
+  zone         = var.zone
 
   tags = ["foo", "bar"]
 
