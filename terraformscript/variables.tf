@@ -31,3 +31,6 @@ variable "subid" {
 variable "tenantid" {
   default = ""
 }
+variable "accesstoken" {
+  default = ""
+}
