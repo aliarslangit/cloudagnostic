@@ -1,30 +1,3 @@
-#Replace variables according to you environment.
-
-//-------------------------------Service principal------------------------------//
-
-variable "azure_subscription_id" {
-  type        = string
-  default     = "xxxxxxxxxxxxxxxxxxxx"
-  description = "description"
-}
-
-variable "azure_client_id" {
-  type        = string
-  default     = "xxxxxxxxxxxxxxxxxxxx"
-  description = "description"
-}
-
-variable "azure_client_secret" {
-  type        = string
-  default     = "xxxxxxxxxxxxxxxxxxxx"
-  description = "description"
-}
-
-variable "azure_tenant_id" {
-  type        = string
-  default     = "xxxxxxxxxxxxxxxxxxxx"
-  description = "description"
-}
 
 //------------------------CONFIGIRATIONS------------------------------------------//
 
