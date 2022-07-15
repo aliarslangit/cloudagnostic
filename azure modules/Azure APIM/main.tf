@@ -7,7 +7,7 @@ resource "azurerm_resource_group" "main" {
 
 # Create application insights
 resource "azurerm_application_insights" "main" {
-  name                = "${var.apimname}_AppInsight_${var.environment}"
+  name                = var.apimname
   location            = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
   application_type    = "web"
@@ -29,9 +29,7 @@ resource "azurerm_api_management" "main" {
   publisher_email     = "company@terraform.io"
 
   sku_name = local.skuname
-  tags = {
-    "Environment" = var.environment
-  }
+
 }
 
 #enabling application insights and logging for APIM
