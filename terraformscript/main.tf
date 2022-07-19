@@ -28,8 +28,14 @@ module "azureapim" {
   sku      = "developer"
   units    = "1"
 }
+
+module "azuresql" {
+  source = "../azure modules/Azure Sql"
+  rgname = ""
+
+}
+
 module "gcp_vm" {
   source = "../gcp modules/gcp compute engine"
   cloud  = local.cloud
 }
-module 
