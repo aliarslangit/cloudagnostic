@@ -1,9 +1,7 @@
 resource "azurerm_resource_group" "demo" {
   name     = var.rgname
   location = var.location
-  tags = {
-    Environment = var.Environment
-  }
+
 }
 
 resource "azurerm_sql_server" "demo" {
@@ -13,9 +11,7 @@ resource "azurerm_sql_server" "demo" {
   version                      = "12.0"
   administrator_login          = var.username
   administrator_login_password = var.password
-  tags = {
-    Environment = var.Environment
-  }
+
 }
 
 /*resource "azurerm_sql_firewall_rule" "demo" {
@@ -37,8 +33,6 @@ resource "azurerm_mssql_database" "demo" {
   sku_name       = "BC_Gen5_2"
   zone_redundant = false
 
-  tags = {
-    Environment = var.Environment
-  }
+
 }
 
