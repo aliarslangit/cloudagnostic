@@ -30,10 +30,12 @@ module "azureapim" {
 }
 
 module "azuresql" {
-  source = "../azure modules/Azure Sql"
-  rgname = ""
-  dbname = ""
-  dbsize = ""
+  source        = "../azure modules/Azure Sql"
+  rgname        = ""
+  dbname        = ""
+  dbsize        = ""
+  staccountname = ""
+  firewallrules = ""
 }
 
 module "gcp_vm" {
