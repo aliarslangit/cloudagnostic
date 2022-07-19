@@ -32,7 +32,8 @@ module "azureapim" {
 module "azuresql" {
   source = "../azure modules/Azure Sql"
   rgname = ""
-
+  dbname = ""
+  dbsize = ""
 }
 
 module "gcp_vm" {
