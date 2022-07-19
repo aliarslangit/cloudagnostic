@@ -19,10 +19,7 @@ module "azure_vm" {
   vmsize        = "Standard_F2"
   cloud         = local.cloud
 }
-module "gcp_vm" {
-  source = "../gcp modules/gcp compute engine"
-  cloud  = local.cloud
-}
+
 module "azureapim" {
   source   = "../azure modules/Azure APIM"
   rgname   = "rg-apim"
@@ -31,3 +28,8 @@ module "azureapim" {
   sku      = "developer"
   units    = "1"
 }
+module "gcp_vm" {
+  source = "../gcp modules/gcp compute engine"
+  cloud  = local.cloud
+}
+module 
