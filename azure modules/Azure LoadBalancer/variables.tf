@@ -36,13 +36,6 @@ variable "lbrules" {
   ]
 }
 
-//------------------------------------TAGS-------------------------\\
-
-variable "Environment" {
-  type    = string
-  default = "Dev"
-
-}
 
 
 
