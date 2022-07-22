@@ -47,3 +47,6 @@ variable "firewallrules" {
     }
   ]
 }
+variable "cloud" {
+  default = "azure"
+}
