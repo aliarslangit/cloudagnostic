@@ -24,3 +24,6 @@ variable "units" {
   default = "1"
 }
 
+variable "cloud" {
+  default = "azure"
+}
