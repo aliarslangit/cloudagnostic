@@ -20,9 +20,7 @@ resource "azurerm_key_vault" "main" {
     default_action = "Deny"
     ip_rules       = ["10.10.10.10"]
   }
-  tags = {
-    Environment = var.environment,
-  }
+
 }
 
 # Create Azure KeyVaylt Access Policy
