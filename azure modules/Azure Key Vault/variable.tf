@@ -18,10 +18,7 @@ variable "sku" {
 }
 
 
-//------------------------------------TAGS-------------------------\\
 
-variable "environment" {
-  type    = string
-  default = "Dev"
+variable "cloud" {
+  default = "azure"
 }
-
