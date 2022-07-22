@@ -36,7 +36,9 @@ variable "lbrules" {
   ]
 }
 
-
+variable "cloud" {
+  default = "azure"
+}
 
 
 
