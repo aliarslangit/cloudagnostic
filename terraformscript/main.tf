@@ -32,21 +32,26 @@ module "azureapim" {
 module "azuresql" {
   source        = "../azure modules/Azure Sql"
   rgname        = ""
-  location = ""
+  location      = ""
   dbname        = ""
   dbsize        = ""
   staccountname = ""
   firewallrules = ""
 }
 module "azurelb" {
-  source = "../azure modules/Azure LoadBalancer"
-  rgname = ""
-  location = ""
-  lbname = ""
+  source       = "../azure modules/Azure LoadBalancer"
+  rgname       = ""
+  location     = ""
+  lbname       = ""
   backendpools = ""
-  lbrules = ""
+  lbrules      = ""
 }
 module "gcp_vm" {
   source = "../gcp modules/gcp compute engine"
   cloud  = local.cloud
+}
+module "gcp_function" {
+  source = "../gcp modules/gcp cloud function"
+
+
 }
